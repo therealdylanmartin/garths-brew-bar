@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <style>
-       body {
-           margin: 0;
-           height: 100vh;
-           width: 100vw;
-           background: url("beer-background.jpg") no-repeat center;
-           background-size: cover;
-       }
-   </style>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h4 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .bg {
+            height: 65vh;
+            width: 100%;
+            background: url("beer-background.jpg") no-repeat center;
+            background-size: cover;
+            padding: 30px;
+        }
+
+        .e-form {
+            height: 35vh;
+            width: 100%;
+            background-color: #E8C47D;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
 </head>
 
+<body>
+
+    <header class="bg">
+        <h1>
+            Garth's Brew Bar is Coming
+        </h1>
+        <h2>
+            Respecting the beer and the experience since like...right now.
+        </h2>
+    </header>
+    <footer class="e-form footer-mailchimp" id="mailchimpFooter">
+        <table>
+            <tr>
+                <td class="footer-mailchimp__image">
+                </td>
+                <td class="footer-mailchimp__content">
+                    <h4 class="footer-mailchimp__heading">
+                        Be the first to know
+                    </h4>
+                    <form method="post" id="mailchimpForm">
+                        <input class="mailchimp-footer__input" id="fieldEmail" name="email" placeholder="Enter your email" type="email" required
+                        />
+                        <button class="mailchimp-footer__button" type="submit">
+                            Step Inside
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+    </script>
+
+</body>
 
 </html>
