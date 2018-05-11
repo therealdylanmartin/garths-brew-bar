@@ -2,32 +2,207 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,500,600,700,800" rel="stylesheet">
+
     <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
         body {
+            height: auto;
             margin: 0;
         }
 
+        a {
+            color: black;
+            opacity: .8;
+        }
+
+        button,
         h1,
         h2,
-        h4 {
+        h3,
+        p {
+            font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
             margin-top: 0;
-            text-align: center;
         }
 
         .bg {
-            height: 65vh;
-            width: 100%;
+            align-items: flex-end;
             background: url("beer-background.jpg") no-repeat center;
             background-size: cover;
+            display: flex;
+            flex-wrap: wrap;
+            height: 100vh;
+            justify-content: center;
             padding: 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .title-copy__container {
+            color: white;
+            max-width: 800px;
+            min-width: 300px;
+            padding-bottom: 30vh;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .title-copy__container {
+                padding-bottom: 50vh;
+            }
+        }
+
+        @media only screen and (max-height: 530px) {
+            .title-copy__container {
+                padding-bottom: 50vh;
+            }
+        }
+
+        .title-copy__title {
+            font-weight: 800;
+            letter-spacing: .08em;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .title-copy__subtitle {
+            font-weight: 500;
+            opacity: .8;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .title-copy__subtitle {
+                font-size: 18px;
+            }
+        }
+
+        .e-form__container {
+            align-items: flex-start;
+            background: #E8C47D;
+            bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            height: 35vh;
+            justify-content: center;
+            opacity: .8;
+            padding: 20px 30px;
+            position: fixed;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .e-form__container {
+                align-items: center;
+                height: 55vh;
+            }
+        }
+
+        @media only screen and (max-height: 530px) {
+            .e-form__container {
+                height: 55vh;
+            }
         }
 
         .e-form {
-            height: 35vh;
+            width: 500px;
+        }
+
+        .e-form__title {
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .e-form__icon-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            height: 50px;
+            justify-content: center;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .e-form__icon-wrapper {
+                height: 65px;
+            }
+        }
+
+        .e-form__icon {
+            height: auto;
+            width: 50px;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .e-form__icon {
+                width: 65px;
+            }
+        }
+
+        .e-form__capture-form {
+            margin-top: 12px;
             width: 100%;
-            background-color: #E8C47D;
-            position: fixed;
+        }
+
+        .e-form__input {
+            border: none;
+            float: left;
+            font-size: 14px;
+            height: 36px;
+            margin: 0;
+            padding-left: 10px;
+            width: 60%;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .e-form__input {
+                height: 42px;
+                width: 100%;
+            }
+        }
+
+        .e-form__button {
+            background: #000;
+            border: none;
+            color: white;
+            float: left;
+            font-size: 14px;
+            font-weight: 600;
+            height: 36px;
+            letter-spacing: .08em;
+            margin: 0;
+            text-transform: uppercase;
+            width: 40%;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .e-form__button {
+                height: 42px;
+                margin-bottom: 12px;
+                width: 100%;
+            }
+        }
+
+        .attr {
             bottom: 0;
+            font-size: 10px;
+            margin-top: 1vh;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 420px) {
+            .attr {
+                font-size: 8px;
+            }
         }
     </style>
 </head>
@@ -35,32 +210,49 @@
 <body>
 
     <header class="bg">
-        <h1>
-            Garth's Brew Bar is Coming
-        </h1>
-        <h2>
-            Respecting the beer and the experience since like...right now.
-        </h2>
+        <div class="title-copy__container">
+            <h1 class="title-copy__title">
+                Garth's Brew Bar is Coming
+            </h1>
+            <h2 class="title-copy__subtitle">
+                Respecting the beer and the experience since like...right now.
+            </h2>
+        </div>
     </header>
-    <footer class="e-form footer-mailchimp" id="mailchimpFooter">
-        <table>
+
+    <section class="e-form__container" id="mailchimpFooter">
+        <table class="e-form">
             <tr>
-                <td class="footer-mailchimp__image">
-                </td>
-                <td class="footer-mailchimp__content">
-                    <h4 class="footer-mailchimp__heading">
+                <td>
+                    <h3 class="e-form__title">
                         Be the first to know
-                    </h4>
-                    <form method="post" id="mailchimpForm">
-                        <input class="mailchimp-footer__input" id="fieldEmail" name="email" placeholder="Enter your email" type="email" required
-                        />
-                        <button class="mailchimp-footer__button" type="submit">
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="e-form__icon-wrapper">
+                    <img class="e-form__icon" src="beer_bw.svg" alt="" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form method="post" class="e-form__capture-form" id="emailCaptureForm">
+                        <input class="e-form__input" id="fieldEmail" name="email" placeholder="Enter your email" type="email" required />
+                        <button class="e-form__button" type="submit">
                             Step Inside
                         </button>
                     </form>
                 </td>
             </tr>
         </table>
+    </section>
+
+    <footer>
+        <p class="attr">Icons made by
+            <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
+            <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+            <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        </p>
     </footer>
 
     <script>
