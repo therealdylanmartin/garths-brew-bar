@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,500,600,700,800" rel="stylesheet">
 
     <style>
@@ -178,7 +180,9 @@
             height: 36px;
             letter-spacing: .08em;
             margin: 0;
+            opacity: 1;
             text-transform: uppercase;
+            transition: opacity .5s ease;
             width: 40%;
         }
 
@@ -188,6 +192,9 @@
                 margin-bottom: 12px;
                 width: 100%;
             }
+        }
+        .e-form__button:hover {
+            opacity: .4;
         }
 
         .attr {
