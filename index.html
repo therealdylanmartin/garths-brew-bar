@@ -150,19 +150,22 @@
         }
 
         .e-form__loading {
+            -webkit-animation: grow .4s linear;
+            animation: grow .4s linear;
             cursor: default;
             display: none;
             justify-content: center;
+            width: 100%;
         }
 
         .e-form__loading-circle {
-            -webkit-animation: loading-circle 4s linear infinite;
-            animation: loading-circle 4s linear infinite;
+            -webkit-animation: loadingCircle 4s linear infinite;
+            animation: loadingCircle 4s linear infinite;
         }
 
         .e-form__btn-success {
-            -webkit-animation: grow 1.5s linear;
-            animation: grow 1.5s linear;
+            -webkit-animation: fadeInOut 1.5s linear;
+            animation: fadeInOut 1.5s linear;
             background: rgba(0, 0, 0, 0);
             color: black;
             cursor: default;
@@ -187,9 +190,29 @@
 
         /*  Animations  */
 
+        /*  e-form__btn-success  */
+
+        @-webkit-keyframes grow {
+            0% {
+                width: 40%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes grow {
+            0% {
+                width: 40%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
         /*  e-form__loading-circle  */
 
-        @-webkit-keyframes loading-circle {
+        @-webkit-keyframes loadingCircle {
             from {
                 -ms-transform: rotate(0deg);
                 /* IE 9 */
@@ -206,7 +229,7 @@
             }
         }
 
-        @keyframes loading-circle {
+        @keyframes loadingCircle {
             from {
                 -ms-transform: rotate(0deg);
                 /* IE 9 */
@@ -225,45 +248,39 @@
 
         /*  e-form__btn-success  */
 
-        @-webkit-keyframes grow {
+        @-webkit-keyframes fadeInOut {
             0% {
                 background: rgba(0, 0, 0, 1);
-                color: rgba(255, 255, 255, .0);
+                color: rgba(255, 255, 255, 0);
                 font-size: 14px;
-                width: 40%;
             }
             50% {
                 background: rgba(0, 0, 0, 1);
-                color: rgba(255, 255, 255, .0);
+                color: rgba(255, 255, 255, 0);
                 font-size: 14px;
-                width: 100%;
             }
             100% {
                 background: rgba(0, 0, 0, 0);
                 color: rgba(0, 0, 0, 1);
                 font-size: 16px;
-                width: 100%;
             }
         }
 
-        @keyframes grow {
+        @keyframes fadeInOut {
             0% {
                 background: rgba(0, 0, 0, 1);
-                color: rgba(255, 255, 255, .0);
+                color: rgba(255, 255, 255, 0);
                 font-size: 14px;
-                width: 40%;
             }
             50% {
                 background: rgba(0, 0, 0, 1);
-                color: rgba(255, 255, 255, .0);
+                color: rgba(255, 255, 255, 0);
                 font-size: 14px;
-                width: 100%;
             }
             100% {
                 background: rgba(0, 0, 0, 0);
                 color: rgba(0, 0, 0, 1);
                 font-size: 16px;
-                width: 100%;
             }
         }
 
@@ -535,6 +552,7 @@
                 e.preventDefault();
 
                 document.getElementById('emailBtn').style.display = 'none';
+                document.getElementById('fieldEmail').style.display = 'none';
                 document.getElementById('emailBtnLoading').style.display = 'flex';
 
                 var request = new XMLHttpRequest();
@@ -544,12 +562,11 @@
                     if (this.readyState === 4) {
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
-                            try { } catch (err) { }
+                            try {} catch (err) {}
                         } else {
                             // Error :(
                         }
                         document.getElementById('emailBtnLoading').style.display = 'none';
-                        document.getElementById('fieldEmail').style.display = 'none';
                         document.getElementById('emailFormSuccess').style.display = 'flex';
                     }
                 };
