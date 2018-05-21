@@ -156,12 +156,9 @@
         }
 
         .e-form__loading {
-            -webkit-animation: grow .4s linear;
-            animation: grow .4s linear;
             cursor: default;
             display: none;
             justify-content: center;
-            width: 100%;
         }
 
         .e-form__loading-circle {
@@ -177,10 +174,14 @@
             cursor: default;
             display: none;
             float: right;
-            font-size: 16px;
             justify-content: center;
             margin: auto 0;
             width: 100%;
+        }
+
+        .e-form__btn-success::after {
+            clear: both;
+            content: "";
         }
 
         /*  Attribution  */
@@ -195,26 +196,6 @@
         }
 
         /*  Animations  */
-
-        /*  e-form__btn-success  */
-
-        @-webkit-keyframes grow {
-            0% {
-                width: 40%;
-            }
-            100% {
-                width: 100%;
-            }
-        }
-
-        @keyframes grow {
-            0% {
-                width: 40%;
-            }
-            100% {
-                width: 100%;
-            }
-        }
 
         /*  e-form__loading-circle  */
 
@@ -250,17 +231,17 @@
             0% {
                 background: rgba(0, 0, 0, 1);
                 color: rgba(255, 255, 255, 0);
-                font-size: 14px;
+                width: 40%;
             }
-            50% {
+            40% {
                 background: rgba(0, 0, 0, 1);
                 color: rgba(255, 255, 255, 0);
-                font-size: 14px;
+                width: 100%;
             }
             100% {
                 background: rgba(0, 0, 0, 0);
                 color: rgba(0, 0, 0, 1);
-                font-size: 16px;
+                width: 100%;
             }
         }
 
@@ -268,17 +249,17 @@
             0% {
                 background: rgba(0, 0, 0, 1);
                 color: rgba(255, 255, 255, 0);
-                font-size: 14px;
+                width: 40%;
             }
-            50% {
+            40% {
                 background: rgba(0, 0, 0, 1);
                 color: rgba(255, 255, 255, 0);
-                font-size: 14px;
+                width: 100%;
             }
             100% {
                 background: rgba(0, 0, 0, 0);
                 color: rgba(0, 0, 0, 1);
-                font-size: 16px;
+                width: 100%;
             }
         }
 
@@ -566,27 +547,33 @@
                 e.preventDefault();
 
                 document.getElementById('emailBtn').style.display = 'none';
-                document.getElementById('fieldEmail').style.display = 'none';
+                document.getElementById('fieldEmail').value = 'Loading...';
                 document.getElementById('emailBtnLoading').style.display = 'flex';
 
                 var request = new XMLHttpRequest();
                 request.open('POST', '/subscribe.php', true);
                 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
                 request.onreadystatechange = function () {
+
                     if (this.readyState === 4) {
+
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
-                            try {} catch (err) {}
+                            try { } catch (err) { }
                         } else {
                             // Error :(
                         }
+
+                        document.getElementById('fieldEmail').style.display = 'none';
                         document.getElementById('emailBtnLoading').style.display = 'none';
                         document.getElementById('emailFormSuccess').style.display = 'flex';
                     }
                 };
                 request.send("email=" + document.getElementById('fieldEmail').value);
             }
+
             var frm = document.getElementById('emailCaptureForm');
+
             if (frm.addEventListener) {
                 frm.addEventListener("submit", subscribeSubmitHandler, false);
             } else if (ele.attachEvent) {
