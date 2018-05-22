@@ -166,6 +166,12 @@
             animation: loadingCircle 4s linear infinite;
         }
 
+        .e-form__success-mobile {
+            display: none;
+            height: 0;
+            width: 0;
+        }
+
         .e-form__btn-success {
             -webkit-animation: fadeInOut 1.5s linear;
             animation: fadeInOut 1.5s linear;
@@ -222,6 +228,32 @@
                 -webkit-transform: rotate(359deg);
                 /* Safari */
                 transform: rotate(359deg);
+            }
+        }
+
+        /*  e-form__success-mobile  */
+
+        @-webkit-keyframes fadeOut {
+            0% {
+                background: rgba(255, 255, 255, 1);
+            }
+            40% {
+                background: rgba(255, 255, 255, 1);
+            }
+            100% {
+                background: rgba(255, 255, 255, 0);
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                background: rgba(255, 255, 255, 1);
+            }
+            40% {
+                background: rgba(255, 255, 255, 1);
+            }
+            100% {
+                background: rgba(255, 255, 255, 0);
             }
         }
 
@@ -300,6 +332,13 @@
                 margin-bottom: 12px;
                 width: 100%;
             }
+            .e-form__success-mobile {
+                -webkit-animation: fadeOut 1.5s linear;
+                animation: fadeOut 1.5s linear;
+                background: rgba(255, 255, 255, 0);
+                height: 36px;
+                width: 100%;
+            }
             .attr {
                 font-size: 8px;
             }
@@ -316,6 +355,41 @@
                     width: 100%;
                 }
                 100% {
+                    width: 100%;
+                }
+            }
+            @-webkit-keyframes fadeInOut {
+                0% {
+                    background: rgba(0, 0, 0, 1);
+                    color: rgba(255, 255, 255, 0);
+                    width: 100%;
+                }
+                40% {
+                    background: rgba(0, 0, 0, 1);
+                    color: rgba(255, 255, 255, 0);
+                    width: 100%;
+                }
+                100% {
+                    background: rgba(0, 0, 0, 0);
+                    color: rgba(0, 0, 0, 1);
+                    width: 100%;
+                }
+            }
+
+            @keyframes fadeInOut {
+                0% {
+                    background: rgba(0, 0, 0, 1);
+                    color: rgba(255, 255, 255, 0);
+                    width: 100%;
+                }
+                40% {
+                    background: rgba(0, 0, 0, 1);
+                    color: rgba(255, 255, 255, 0);
+                    width: 100%;
+                }
+                100% {
+                    background: rgba(0, 0, 0, 0);
+                    color: rgba(0, 0, 0, 1);
                     width: 100%;
                 }
             }
@@ -484,10 +558,12 @@
             <tr>
                 <td>
                     <form method="post" class="e-form__capture-form" id="emailCaptureForm">
+                        <!-- Initial Form -->
                         <input class="e-form__input" id="fieldEmail" name="email" placeholder="Enter your email" type="email" required />
                         <button class="e-form__button" id="emailBtn" type="submit">
                             Step Inside
                         </button>
+                        <!-- Loading Form -->
                         <button class="e-form__loading e-form__button" id="emailBtnLoading" disabled>
                             <svg class="e-form__loading-circle" width="28px" height="28px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 192 192" style="enable-background:new 0 0 192 192;"
@@ -523,9 +599,12 @@
                                 c-2.4,1.4-5.5,0.6-6.8-1.8L49,31.9C47.6,29.5,48.5,26.5,50.8,25.1z" />
                             </svg>
                         </button>
+                        <!-- Success Form -->
+                        <input class="e-form__input e-form__success-mobile" id="fieldSuccess" placeholder="" disabled />
                         <button class="e-form__btn-success e-form__button" id="emailFormSuccess" disabled>
                             You&#39;re in &nbsp;&#8210;&nbsp; Cheers!
                         </button>
+
                     </form>
                 </td>
             </tr>
@@ -546,9 +625,11 @@
                 e.stopPropagation();
                 e.preventDefault();
 
-                document.getElementById('emailBtn').style.display = 'none';
-                document.getElementById('fieldEmail').value = 'Loading...';
-                document.getElementById('emailBtnLoading').style.display = 'flex';
+                var getId = document.getElementById();
+
+                getId('emailBtn').style.display = 'none';
+                getId('fieldEmail').value = 'hard at work...';
+                getId('emailBtnLoading').style.display = 'flex';
 
                 var request = new XMLHttpRequest();
                 request.open('POST', '/subscribe.php', true);
@@ -559,17 +640,18 @@
 
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
-                            try { } catch (err) { }
+                            try {} catch (err) {}
                         } else {
                             // Error :(
                         }
 
-                        document.getElementById('fieldEmail').style.display = 'none';
-                        document.getElementById('emailBtnLoading').style.display = 'none';
-                        document.getElementById('emailFormSuccess').style.display = 'flex';
+                        getId('fieldEmail').style.display = 'none';
+                        getId('emailBtnLoading').style.display = 'none';
+                        getId('fieldSuccess').style.display = 'block';
+                        getId('emailFormSuccess').style.display = 'flex';
                     }
                 };
-                request.send("email=" + document.getElementById('fieldEmail').value);
+                request.send("email=" + getId('fieldEmail').value);
             }
 
             var frm = document.getElementById('emailCaptureForm');
