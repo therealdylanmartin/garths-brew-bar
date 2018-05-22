@@ -170,6 +170,7 @@
             background: rgba(255, 255, 255, 0);
             display: none;
             height: 0;
+            margin-top: -2px;
             width: 0;
         }
 
@@ -337,7 +338,8 @@
                 -webkit-animation: fadeOut 1.5s linear;
                 animation: fadeOut 1.5s linear;
                 background: rgba(255, 255, 255, 0);
-                height: 38px;
+                height: 42px;
+                margin-top: 0;
                 width: 100%;
             }
             .attr {
@@ -626,14 +628,11 @@
                 e.stopPropagation();
                 e.preventDefault();
 
-                var getId = document.getElementById();
-
-                getId('emailBtn').style.display = 'none';
-                getId('fieldEmail').value = 'hard at work...';
-                getId('emailBtnLoading').style.display = 'flex';
+                document.getElementById('emailBtn').style.display = 'none';
+                document.getElementById('emailBtnLoading').style.display = 'flex';
 
                 var request = new XMLHttpRequest();
-                request.open('POST', '/subscribe.php', true);
+                request.open('POST', '/brew-bar/subscribe.php', true);
                 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
                 request.onreadystatechange = function () {
 
@@ -641,18 +640,18 @@
 
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
-                            try { } catch (err) { }
+                            try {} catch (err) {}
                         } else {
                             // Error :(
                         }
 
-                        getId('fieldEmail').style.display = 'none';
-                        getId('emailBtnLoading').style.display = 'none';
-                        getId('fieldSuccess').style.display = 'block';
-                        getId('emailFormSuccess').style.display = 'flex';
+                        document.getElementById('fieldEmail').style.display = 'none';
+                        document.getElementById('emailBtnLoading').style.display = 'none';
+                        document.getElementById('fieldSuccess').style.display = 'block';
+                        document.getElementById('emailFormSuccess').style.display = 'flex';
                     }
                 };
-                request.send("email=" + getId('fieldEmail').value);
+                request.send("email=" + document.getElementById('fieldEmail').value);
             }
 
             var frm = document.getElementById('emailCaptureForm');
