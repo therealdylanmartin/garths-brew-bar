@@ -167,6 +167,7 @@
         }
 
         .e-form__success-mobile {
+            background: rgba(255, 255, 255, 0);
             display: none;
             height: 0;
             width: 0;
@@ -336,7 +337,7 @@
                 -webkit-animation: fadeOut 1.5s linear;
                 animation: fadeOut 1.5s linear;
                 background: rgba(255, 255, 255, 0);
-                height: 36px;
+                height: 38px;
                 width: 100%;
             }
             .attr {
@@ -640,7 +641,7 @@
 
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
-                            try {} catch (err) {}
+                            try { } catch (err) { }
                         } else {
                             // Error :(
                         }
