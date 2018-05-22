@@ -2,8 +2,8 @@
 $email = $_POST['email'];
 if(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
     // MailChimp API credentials
-    $apiKey = '1a005712ec952e0c29b9ca237e169a34-us17';
-    $listID = '1ead5efe68';
+    $apiKey = 'MailChimp API key goes here';
+    $listID = 'MailChimp list ID goes here';
     
     // MailChimp API URL
     $memberID = md5(strtolower($email));
