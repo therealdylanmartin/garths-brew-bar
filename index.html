@@ -24,26 +24,30 @@
             <div class="content-box">
 
                 <picture class="logo__box">
-                    <img class="logo" src="images/gbb_bare-logo.png" alt="Garth's Brew Bar | Madison, WI" title="Garth's Brew Bar | Madison, WI" />
+                    <source class="logo" 
+                        srcset="images/gbb_full-logo.png, images/gbb_full-logo_hr.png 2x" 
+                        src="images/gbb_full-logo_hr.png" 
+                        alt="Garth's Brew Bar | Madison, WI" 
+                    />
                 </picture>
 
                 <header class="title-copy__container">
-                    <h1 class="title-copy__title">Garth's Brew Bar is Coming</h1>
-                    <h2 class="title-copy__subtitle">A bar that respects the beer and experience</h2>
+                    <h1 class="title-copy__title"><span>Garth's</span><span> </span><span>Brew Bar</span><span> </span><span>is Coming</span></h1>
+                    <h2 class="title-copy__subtitle"><span>A bar that respects</span><span> </span><span>the beer and experience</span></h2>
                 </header>
 
                 <form method="post" class="e-form__capture-form" id="emailCaptureForm">
                     <!-- Initial Form -->
-                    <input class="e-form__input" id="fieldEmail" name="email" placeholder="Enter your email" type="email" required />
-                    <button class="e-form__button" id="emailBtn" type="submit">Be the First to Know<span>Be the First to Know</span></button>
+                    <input class="e-form__input" id="fieldEmail" name="email" placeholder="email@address.com" type="email" required />
+                    <button class="e-form__button" id="emailBtn" type="submit"><span>Be the First to Know</span><span>Be the First to Know</span></button>
                     <!-- Loading Form -->
-                    <button class="e-form__loading e-form__button" id="emailBtnLoading" disabled>
+                    <button class="e-form__btn-loading e-form__button" id="emailBtnLoading" disabled>
                         <svg class="e-form__loading-circle" width="28px" height="28px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 192 192" style="enable-background:new 0 0 192 192;"
                             xml:space="preserve">
                             <style type="text/css">
                                 .stcirc {
-                                    fill: #FFFFFF;
+                                    fill: #3a3a3c;
                                 }
                             </style>
                             <path class="stcirc" d="M99.7,62h-7.3c-2.8,0-5-2.2-5-5V17c0-2.7,2.2-5,5-5h7.3c2.8,0,5,2.2,5,5v40C104.7,59.8,102.4,62,99.7,62z"
@@ -73,9 +77,7 @@
                         </svg>
                     </button>
                     <!-- Success Form -->
-                    <input class="e-form__input e-form__success-mobile" id="fieldSuccess" placeholder="" disabled />
-                    <button class="e-form__btn-success e-form__button" id="emailFormSuccess" disabled>You&#39;re in, Cheers!</button>
-
+                    <button class="e-form__btn-success e-form__button" id="emailFormSuccess" disabled><span>You&#39;re in, Cheers!</span><span>You&#39;re in, Cheers!</span></button>
                 </form>
 
             </div>
@@ -94,7 +96,7 @@
                 document.getElementById('emailBtnLoading').style.display = 'flex';
 
                 var request = new XMLHttpRequest();
-                request.open('POST', 'subscribe.php', true);
+                request.open('POST', '/garths-brew-bar/form/subscribe.php', true);
                 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
                 request.onreadystatechange = function () {
 
@@ -102,15 +104,17 @@
 
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
+                            document.getElementById('emailBtnLoading').style.display = 'none';
+                            document.getElementById('emailFormSuccess').style.display = 'flex';
+                            document.getElementById('fieldEmail').style.opacity = '0';
                             try {} catch (err) {}
                         } else {
                             // Error :(
+                            console.log("Hammertime!");
+                            document.getElementById('emailBtnLoading').style.display = 'none';
+                            document.getElementById('emailBtn').style.display = 'block';
                         }
 
-                        document.getElementById('fieldEmail').style.display = 'none';
-                        document.getElementById('emailBtnLoading').style.display = 'none';
-                        document.getElementById('fieldSuccess').style.display = 'block';
-                        document.getElementById('emailFormSuccess').style.display = 'flex';
                     }
                 };
                 request.send("email=" + document.getElementById('fieldEmail').value);
