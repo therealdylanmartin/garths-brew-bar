@@ -164,6 +164,7 @@ p {
     @media only screen and (max-width: 460px),
     only screen and (max-height: 460px) {
         min-height: 100vh;
+        padding: 0 10px 5px;
         min-width: 100vw;
     }
 
@@ -194,8 +195,13 @@ p {
         margin-bottom: 30px;
     }
 
-    @media only screen and (max-height: 380px) {
+    @media only screen and (max-height: 420px) {
         margin-top: 0;
+    }
+
+    @media only screen and (max-width: 460px),
+    only screen and (max-height: 460px) {
+        width: 80px;
     }
 }
 

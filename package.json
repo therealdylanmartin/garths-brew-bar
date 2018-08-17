@@ -9,7 +9,8 @@
     "compile:sass": "node-sass css/sass/main.scss css/main.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/main.css -o css/main.prefix.css",
     "compress:css": "node-sass css/main.prefix.css css/main.min.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+    "wordpress:css": "node-sass css/main.prefix.css wordpress/wp-content/themes/twentyseventeen/css/main.min.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css wordpress:css"
   },
   "repository": {
     "type": "git",

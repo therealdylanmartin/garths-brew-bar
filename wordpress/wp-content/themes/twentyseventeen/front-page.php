@@ -17,14 +17,16 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/png" href="http://www.garthsbrewbar.com/wp-content/themes/twentyseventeen/images/favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" type="image/png" href="http://www.garthsbrewbar.com/wp-content/themes/twentyseventeen/images/favicon.ico" />
     <link rel="icon" type="image/png" href="http://www.garthsbrewbar.com/wp-content/themes/twentyseventeen/images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="http://www.garthsbrewbar.com/wp-content/themes/twentyseventeen/images/favicon-16x16.png" sizes="16x16" />
 
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,500,600,700,800" rel="stylesheet">
-    <link href="http://www.garthsbrewbar.com/wp-content/themes/twentyseventeen/css/main.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,500,600,700,800" rel="stylesheet" />
+    <link href="http://www.garthsbrewbar.com/wp-content/themes/twentyseventeen/css/main.min.css" rel="stylesheet" type="text/css" />
 
     <title>Garth's Brew Bar | Madison, WI</title>
 

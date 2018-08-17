@@ -122,6 +122,7 @@ p {
   @media only screen and (max-width: 460px), only screen and (max-height: 460px) {
     .content-box {
       min-height: 100vh;
+      padding: 0 10px 5px;
       min-width: 100vw; } }
   @media only screen and (max-width: 460px) and (min-height: 560px) {
     .content-box {
@@ -144,9 +145,12 @@ p {
   @media only screen and (max-width: 460px) and (min-height: 520px) {
     .logo {
       margin-bottom: 30px; } }
-  @media only screen and (max-height: 380px) {
+  @media only screen and (max-height: 420px) {
     .logo {
       margin-top: 0; } }
+  @media only screen and (max-width: 460px), only screen and (max-height: 460px) {
+    .logo {
+      width: 80px; } }
 
 /*  Heading  */
 .title-copy__container {
